@@ -1,0 +1,15 @@
+PAY = (open_wallet -> WALLET) ,
+WALLET = (take_money -> EMPTY) ,
+EMPTY = (give_money -> STOP).
+
+PAY2 = (open_wallet->EXTRACT| open_card_holder->OUT),
+OUT = (take_card ->HAND),
+HAND = (give_card -> RECEIVE),
+RECEIVE = (receive_card -> STOP),
+EXTRACT = (take_money->GIVE),
+GIVE = (give_money -> STOP).
+
+DINNER = (eat_dinner -> DINNER | eat_dinner -> ATE),
+ATE = (finnish_dinner -> DESSERT),
+DESSERT = (eat_dessert -> DESSERT| eat_dessert -> COMPLETE),
+COMPLETE = (finnish_dessert -> STOP).
