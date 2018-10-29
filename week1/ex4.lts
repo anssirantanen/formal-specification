@@ -1,0 +1,4 @@
+range V = 1..5
+STEREO (N=1) = (on -> ON[N]),
+ON[i:V] = (off -> STEREO| when (i < 5) channel_up[i+1] -> ON[i+1] | when(i>1) channel_down[i-1] -> ON[i-1]).
+

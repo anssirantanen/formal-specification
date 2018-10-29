@@ -1,0 +1,14 @@
+LOOP = (a -> LOOP).
+
+DEADEND = (b -> CSTATE),
+CSTATE = (c -> DSTATE),
+DSTATE = (d -> ASTATE),
+ASTATE = (a -> ASTATE).
+
+
+TOEND = (b -> CSTATE),
+CSTATE = (c -> DSTATE),
+DSTATE = (d -> ESTATE),
+ESTATE = (e -> FSTATE),
+FSTATE = (f -> STOP).
+
