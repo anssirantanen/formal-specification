@@ -1,0 +1,6 @@
+range V = 0..3
+range C = 1..5
+STEREO (N=1,K=1)= (turn_on ->ON[N][K]),
+ON[v:V][c:C] = (turn_off -> STEREO | when(v<3) volume_up -> ON[v+1][c]| when(v>0) volume_down -> ON[v-1][c]| when(c<5) channel_up -> ON[v][c+1]| when(c>1) channel_down -> ON[v][c-1]),
+MUTED[v:V][c:C] =(unmute -> ON[0][c] | unmute -> ON[2][c] | turn_off -> STEREO ).
+
