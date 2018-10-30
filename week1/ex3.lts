@@ -1,0 +1,3 @@
+STEREO = (turn_on -> ON),
+ON = (mute -> MUTED| volume_up -> ON| volume_down -> ON| mute ->MUTED| turn_off -> STEREO),
+MUTED = (unmute -> ON| turn_off -> STEREO).
