@@ -1,0 +1,5 @@
+CDPLAYER = (play->PLAYING),
+PLAYING =(playing->PLAYING|stop->CDPLAYER).
+USER = (press_play->PLAYINGUSER),
+PLAYINGUSER = (press_stop -> USER).
+||SYSTEM = (CDPLAYER||USER)/{press_play/{play}, press_stop/stop}.

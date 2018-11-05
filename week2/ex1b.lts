@@ -1,0 +1,5 @@
+CDPLAYER = (play->PLAYING),
+PLAYING =(playing->PLAYING|stop->CDPLAYER).
+USER = (cd.play->PLAYINGUSER),
+PLAYINGUSER = (cd.stop -> USER).
+||SYSTEM = (a:USER||b:USER||{a,b}::cd:CDPLAYER).
