@@ -1,0 +1,6 @@
+range R = 0..3
+BOOK =(buy -> sell -> BOOK).
+READER(N=3) = READER[3] ,
+READER[n:R] =(when(n>1)buy -> READING[n-2]),
+READING[t:R] = (read -> sell -> READER[t+1]).
+||BOOKSYSTEM = (a: READER|| b:READER|| c:READER || {a,b,c}::BOOK).
