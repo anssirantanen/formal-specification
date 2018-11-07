@@ -1,0 +1,15 @@
+range M = 0..5
+set VarAplha = {value.{read[M],write[M]}}
+BALANCE =BALANCE[0],
+BALANCE[u:M] =(read[u]   ->BALANCE[u] 
+           |write[v:M]->BALANCE[v]).
+
+LOCK = (acquire->release->LOCK).
+||LOCKVAR = (LOCK || BALANCE).
+
+CAMPAING = (value.read[m:M] -> DISPENSE[m]),
+DISPENSE[m:M] = (when(m>3) withdraw  -> value.write[m-4]->CAMPAING  | wait -> CAMPAING)+VarAplha.
+
+DONATOR = (donate ->  value.acquire -> value.read[m:M] -> value.write[m+1]->value.release ->DONATOR)+VarAplha.
+||SYSTEM =(a : DONATOR|| b:DONATOR||c:CAMPAING ||{a,b,c}::value:LOCKVAR).
+
